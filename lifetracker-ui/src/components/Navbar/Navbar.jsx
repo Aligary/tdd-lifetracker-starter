@@ -1,5 +1,6 @@
 import * as React from "react"
 import "./Navbar.css"
+import logo from "../../img/logo.jpg"
 
 export default function Navbar() {
   return (
@@ -7,7 +8,7 @@ export default function Navbar() {
         navbar
         <div className="content">
           <div className="logo">
-            <img src="../../img/logo.jpg"></img>
+            <img src={logo} ></img>
           </div>
           <ul className="links">
 
