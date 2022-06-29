@@ -1,0 +1,74 @@
+:root {
+    --side-padding: 40px;
+    --side-padding: 80px;
+    --content-width: 1100px;
+    --navbar-height: 100px;
+    --dark-background: #2c4147;
+    --less-dark-background: #3d4a46;
+    --bright-green: #00c98e;
+    --pure-white: #fff;
+    --grey-bg: #f7f7f7;
+    --accent-gold: #ffab09;
+    --accent-aqua: #03c5d1;
+    --accent-blue: #4e81eb;
+    --bright-red: #fe3210;
+    --red-linear-gradient: linear-gradient(64.7deg,rgba(251,112,144,0.25),#c90000);
+    --red-linear-gradient: linear-gradient(64.7deg,rgba(251,112,144,0.85),#c90000);
+    --red-linear-gradient: linear-gradient(64.7deg,#c90000,rgba(251,112,144,0.85));
+    --blue-linear-gradient: linear-gradient(64.7deg,#4e81eb,#4e81eb);
+    --purple-linear-gradient: linear-gradient(64.7deg,#441dfc,#4e81eb);
+    --orange-linear-gradient: linear-gradient(64.7deg,#8e3232,#c96d00);
+    --teal-linear-gradient: linear-gradient(64.7deg,#1000c9,#00c98e);
+    --aqua-linear-gradient: linear-gradient(64.7deg,#03c5d1,#03c5d1);
+    --gold-linear-gradient: linear-gradient(64.7deg,#ffab09,#ffab09);
+    --muted: #969696;
+    --font-dark: #212121;
+    --font-light: #5b5b5b;
+    --border-color: #e4e4e4;
+    --color-secondary: var(--bright-green);
+  }
+
+.navbar {
+    width: 100%;
+    max-width: 100vw;
+    background: var(--dark-background);
+    height: var(--navbar-height);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 var(--side-padding);
+    color: #fff;
+    font-weight: 300;
+}
+
+.navbar .content {
+    max-width: var(--content-width);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navbar .content .logo {
+    width: 200px;
+    margin-right: 50px;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    list-style-type: none;
+    margin-left: auto;
+    flex: 1 1;
+    max-width: 650px;
+    grid-gap: 50px;
+    gap: 50px;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
