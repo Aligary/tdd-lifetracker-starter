@@ -1,0 +1,53 @@
+.login-form, .login-form .card {
+    display: flex;
+    align-items: center;
+}
+
+.login-form {
+    min-height: calc(100vh - var(--navbar-height));
+    height: 100%;
+    max-height: calc(100vh - var(--navbar-height));
+    width: 100%;
+    max-width: 100vw;
+    background: var(--dark-blue);
+    justify-content: center;
+}
+
+.login-form .card {
+    min-height: 600px;
+    width: 520px;
+    padding: 24px 36px 0;
+    flex-direction: column;
+}
+
+.login-form .card .form, .login-form .card .form .input-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.login-form .card .form {
+    padding-bottom: 10px;
+    color: var(--pure-white);
+}
+
+.login-form .card .form .input-field {
+    margin: 8px 0;
+}
+
+.login-form .card .form .btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form .card .form .btn {
+    height: 70px;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+}

@@ -24,19 +24,10 @@ export function NavLinks() {
 
   return (
     <div className="nav-links">
-      <li>
         <Link to="/activity">Activity</Link>
-      </li>
-      <li>
         <Link to="/exercise">Exercise</Link>
-      </li>
-      <li>
         <Link to="/nutrition">Nutrition</Link>
-      </li>
-      <li>
         <Link to="/sleep">Sleep</Link>
-      </li>
-
       {isLoggedIn ?
         <div>
           <button className="checkout-button" >Log Out</button>
