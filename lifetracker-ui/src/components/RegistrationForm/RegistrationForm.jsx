@@ -43,35 +43,38 @@ export default function RegistrationForm(props) {
         <div className="card">
             <h2>Register</h2>
             <br/>
-            <div className="input-field">
-                Email
-                <input className="form-input" type="email" name="email" placeholder="Enter a Valid Email" value={form.email} onChange={handleOnInputChange}/>
-                {errors.email && <span className="error">{errors.email}</span>}
+            <div className="form">
+              <div className="input-field">
+                  Email
+                  <input className="form-input" type="email" name="email" placeholder="Enter a Valid Email" value={form.email} onChange={handleOnInputChange}/>
+                  {errors.email && <span className="error">{errors.email}</span>}
+              </div>
+              <div className="input-field">
+                  Username
+                  <input className="form-input" type="text" name="username" placeholder="Your Username" value={form.username} onChange={handleOnInputChange}/>
+              </div>
+              <div className="split-input-field">
+                  <div className="input-field">
+                      First Name
+                      <input className="form-input" type="text" name="firstName" placeholder="Your First Name" value={form.firstName} onChange={handleOnInputChange}/>
+                  </div>
+                  <div className="input-field">
+                      Last Name
+                      <input className="form-input" type="text" name="lastName" placeholder="Your Last Name" value={form.lastName} onChange={handleOnInputChange}/>
+                  </div>
+              </div>
+              <div className="input-field">
+                  Password
+                  <input className="form-input" type="text" name="password" placeholder="Create Your Password" value={form.password} onChange={handleOnInputChange}/>
+              </div>
+              <div className="input-field">
+                  Confirm Password
+                  <input className="form-input" type="text" name="passwordConfirm" placeholder="Confirm Your Password" value={form.passwordConfirm} onChange={handleOnInputChange}/>
+                  {errors.passwordConfirm && <span className="error">{errors.passwordConfirm}</span>}
+              </div>
+              <button className="submit-login" onClick={signupUser}>Create Account</button>
             </div>
-            <div className="input-field">
-                Username
-                <input className="form-input" type="text" name="username" placeholder="Your Username" value={form.username} onChange={handleOnInputChange}/>
-            </div>
-            <div className="split-input-field">
-                <div className="input-field">
-                    First Name
-                    <input className="form-input" type="text" name="firstName" placeholder="Your First Name" value={form.firstName} onChange={handleOnInputChange}/>
-                </div>
-                <div className="input-field">
-                    Last Name
-                    <input className="form-input" type="text" name="lastName" placeholder="Your Last Name" value={form.lastName} onChange={handleOnInputChange}/>
-                </div>
-            </div>
-            <div className="input-field">
-                Password
-                <input className="form-input" type="text" name="password" placeholder="Create Your Password" value={form.password} onChange={handleOnInputChange}/>
-            </div>
-            <div className="input-field">
-                Confirm Password
-                <input className="form-input" type="text" name="passwordConfirm" placeholder="Confirm Your Password" value={form.passwordConfirm} onChange={handleOnInputChange}/>
-                {errors.passwordConfirm && <span className="error">{errors.passwordConfirm}</span>}
-            </div>
-            <button className="submit-login" onClick={signupUser}>Create Account</button>
+              
         </div>
     </div>
   )
