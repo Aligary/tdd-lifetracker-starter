@@ -8,20 +8,20 @@ export default function NutritionCard(props) {
         <div className="card-header">
             {
                 props.imageUrl?
-                <img classname="nutrition-image"src={props.imageUrl} alt="nutrition"/>
+                <img classname="nutrition-image"src={props.nutritions.imageUrl} alt="nutrition"/>
                 :null
             }
-            <h2 className="nutrition-name">{props.name}</h2>
+            <h2 className="nutrition-name">{props.nutritions.name}</h2>
         </div>
         <div className="card-stats">
             <div className="nutrition-calories">
                 <p>Calories</p>
-                <span>{props.calories}</span>
+                <span>{props.nutritions.calories}</span>
             </div>
         </div>
         <div className="card-meta">
-            <small className="nutrition-date">{props.createdAt}</small>
-            <small className="nutrition-category">{props.category}</small>
+            <small className="nutrition-date">{props.nutritions.createdAt}</small>
+            <small className="nutrition-category">{props.nutritions.category}</small>
 
         </div>
     </div>
