@@ -28,6 +28,7 @@
     --color-secondary: var(--bright-green);
   }
 
+
 .navbar {
     width: 100%;
     max-width: 100vw;
@@ -37,6 +38,12 @@
     flex-direction: row;
     align-items: center;
     padding: 0 var(--side-padding);
+    color: #fff;
+    font-weight: 300;
+}
+
+.navbar a {
+    text-decoration: none;
     color: #fff;
     font-weight: 300;
 }
@@ -84,4 +91,21 @@
 li {
     display: list-item;
     text-align: -webkit-match-parent;
+}
+
+.btn, button {
+    background: transparent;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .1s ease;
+    padding: 12px 18px;
+    border-radius: 4px;
+    background: #00c98e;
+    background: var(--color-secondary);
+    color: #fff;
 }

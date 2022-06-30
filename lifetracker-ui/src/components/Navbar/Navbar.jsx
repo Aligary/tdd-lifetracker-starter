@@ -29,17 +29,13 @@ export function NavLinks() {
         <Link to="/nutrition">Nutrition</Link>
         <Link to="/sleep">Sleep</Link>
       {isLoggedIn ?
-        <div>
           <button className="checkout-button" >Log Out</button>
-        </div>
         :
-        <div>
-          <li>
+        <div className="nav-links">
             <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/register">Sign Up</Link>
-          </li>
+            <div className="btn secondary">
+              <Link to="/register">Sign Up</Link>
+            </div>
         </div>
         
       }
