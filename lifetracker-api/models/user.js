@@ -7,11 +7,10 @@ class User {
     static async makePublicUser(user) {
         return {
             id: user.id,
-            email: user.email,
+            username: user.username,
             first_name: user.first_name,
             last_name: user.last_name,
-            loation: user.location,
-            date: user.date
+            email: user.email
         }
     }
 
@@ -26,7 +25,7 @@ class User {
         })
 
         //lookup user in db by email
-        const user = await User.fetchByUserEmail(credentials.email)
+        const user = await User.fetchByEmail(credentials.email)
         //if user found, compare submitted pw with pw in db
         //if match, return user
         if (user) {
@@ -42,7 +41,7 @@ class User {
     static async register(credentials) {
         //user should submit email, pw
         //if any missing, throw an error
-        const requiredFields = ["password", "email", "first_name", "last_name", "location", "date"]
+        const requiredFields = ["password", "email", "username", "first_name", "last_name"]
         requiredFields.forEach((e) => {
             if(!credentials.hasOwnProperty(e)) {
                 throw new BadRequestError(`Missing ${e} in request body.`)
@@ -54,10 +53,13 @@ class User {
         }
         //make sure no user already exists in db with same email
         //if one does throw an error
-        const existingUser = await User.fetchByUserEmail(credentials.email)
-        if(existingUser) {
-            throw new BadRequestError(`Duplicate email: ${credentials.email}`)
+        const existingEmail = await User.fetchByEmail(credentials.email)
+        if(existingEmail) {
+            throw new BadRequestError(`This email already exists: ${credentials.email}`)
         }
+
+        
+
 
         //take users pw and hash it
         const hashedPassword = await bcrypt.hash(credentials.password, BCRYPT_WORK_FACTOR)
@@ -69,14 +71,13 @@ class User {
             INSERT INTO users (
                 password,
                 email,
+                username,
                 first_name,
-                last_name,
-                location,
-                date
+                last_name
             )
-            VALUES ($1, $2, $3, $4, $5, $6)
-            RETURNING id, password, email, first_name, last_name, location, date;
-        `, [hashedPassword, lowercasedEmail, credentials.first_name, credentials.last_name, credentials.location, credentials.date])
+            VALUES ($1, $2, $3, $4, $5)
+            RETURNING id, password, email, username, first_name, last_name;
+        `, [hashedPassword, lowercasedEmail, credentials.first_name, credentials.last_name, credentials.passwordConfirm])
         
         //return user
         const user = result.rows[0]
@@ -84,7 +85,7 @@ class User {
         return User.makePublicUser(user)
     }
 
-    static async fetchByUserEmail(email) {
+    static async fetchByEmail(email) {
         if (!email) {
             throw new BadRequestError("No email provided")
         }
