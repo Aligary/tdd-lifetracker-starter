@@ -1,17 +1,29 @@
 const jwt = require("jsonwebtoken")
-const SECRET_KEY = "123supersecretkey4me"
+const { SECRET_KEY } = require("../config")
 
-const generateToken = (data) => jwt.sign(data, SECRET_KEY, { algorith: "HS256", expiresIn: 10000 })
+const genereateToken = (data) => jwt.sign(data, SECRET_KEY, { expiresIn:"24h" })
 
-const validateToken = (token) => jwt.verify(token, SECRET_KEY)
+const createUserJwt = (user) => {
+    const payload = {
+        email: user.email,
+        isAdmin: user.isAdmin || false
+    }
 
-const testTokens = () => {
-    const user = { email: "person@gmail.com" }
-
-    const token = generateToken(user)
-    console.log("token", token)
-    const validatedToken = validateToken(token)
-    console.log("validatgedToken", validatedToken)
+    return genereateToken(payload)
 }
 
-testTokens()
+const validateToken = (token) => {
+    try {
+        const decoded = jwt.verify(token, SECRET_KEY)
+        return decoded
+    } catch(err) {
+        return {}
+    }
+}
+
+modules.exports = {
+    genereateToken,
+    createUserJwt,
+    validateToken
+}
+
