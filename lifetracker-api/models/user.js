@@ -5,6 +5,7 @@ const { BadRequestError, UnauthorizedError } = require("../utils/errors")
 
 class User {
     static async makePublicUser(user) {
+        console.log(user)
         return {
             id: user.id,
             username: user.username,
@@ -77,7 +78,7 @@ class User {
             )
             VALUES ($1, $2, $3, $4, $5)
             RETURNING id, password, email, username, first_name, last_name;
-        `, [hashedPassword, lowercasedEmail, credentials.first_name, credentials.last_name, credentials.passwordConfirm])
+        `, [hashedPassword, lowercasedEmail, credentials.username, credentials.first_name, credentials.last_name])
         
         //return user
         const user = result.rows[0]
@@ -98,5 +99,6 @@ class User {
 
         return user
     }
+
 }
 module.exports = User

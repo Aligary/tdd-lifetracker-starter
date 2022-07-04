@@ -21,7 +21,7 @@ const validateToken = (token) => {
     }
 }
 
-modules.exports = {
+module.exports = {
     genereateToken,
     createUserJwt,
     validateToken
