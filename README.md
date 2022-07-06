@@ -4,7 +4,7 @@
 
 Submitted by: **Aligary Patawaran**
 
-Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
+Deployed Application: [Lifetracker Deployed Site]![](https://raw.githubusercontent.com/Aligary/tdd-lifetracker-starter/frontendBranch/lifetracker.gif)
 
 ## Application Features
 
