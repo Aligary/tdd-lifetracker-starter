@@ -4,7 +4,7 @@
 
 Submitted by: **Aligary Patawaran**
 
-Deployed Application: [Lifetracker Deployed Site]![](https://raw.githubusercontent.com/Aligary/tdd-lifetracker-starter/frontendBranch/lifetracker.gif)
+Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
 
 ## Application Features
 
@@ -40,9 +40,7 @@ Implement any of the following features to improve the application:
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+![](https://raw.githubusercontent.com/Aligary/tdd-lifetracker-starter/frontendBranch/lifetracker.gif)
 
 ### Reflection
 
