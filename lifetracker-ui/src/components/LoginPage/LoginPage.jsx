@@ -11,7 +11,7 @@ export default function LoginPage(props) {
         {
           props.isLoggedIn ?
           useEffect(() => {navigate("/activity") ,[]}) 
-          : <LoginForm />
+          : <LoginForm isLoggedIn={props.isLoggedIn} setIsLoggedIn={props.setIsLoggedIn}/>
         }
     </div>
   )

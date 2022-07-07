@@ -1,6 +1,8 @@
 import * as React from "react"
 import "./LoginForm.css"
 import { useState } from "react"
+import apiClient from "../../../services/apiClient"
+
 
 export default function LoginForm(props) {
     
@@ -8,6 +10,15 @@ export default function LoginForm(props) {
     const [form, setForm] = useState({
         email: "",
         password: "",
+      })
+
+    const [user, setUser] = useState({
+        email: "",
+        username: "",
+        firstName: "",
+        lastName: "",
+        password: "",
+        passwordConfirm: ""
       })
     
       const handleOnInputChange = (event) => {
@@ -22,8 +33,19 @@ export default function LoginForm(props) {
         setForm((f) => ({ ...f, [event.target.name]: event.target.value }))
       }
 
-      const loginUser = () => {
-        console.log("hi")
+      const loginUser = async () => {
+        const {data, error} = await apiClient.login({email: form.email, password: form.password})
+        if (error) {
+          setErrors((e) => ({...e, form:error}))
+        }
+
+        if(data?.user) {
+          setUser(data.user)
+          apiClient.setToken(data.token)
+          console.log("Here")
+          //props.setIsLoggedIn(true)
+          console.log("loggedin", props.isLoggedIn)
+        }
       }
 
   return (

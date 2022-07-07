@@ -4,7 +4,7 @@ import logo from "../../img/logo.jpg"
 
 import { Link } from "react-router-dom"
 
-export default function Navbar() {
+export default function Navbar(props) {
   return (
     <nav className="navbar">
         <div className="content">
@@ -13,14 +13,13 @@ export default function Navbar() {
               <img src={logo} alt ="logo" width="60"/>
             </Link>
           </div>
-          <NavLinks />
+          <NavLinks isLoggedIn={props.isLoggedIn}/>
         </div>
     </nav>
   )
 }
 
-export function NavLinks() {
-  let isLoggedIn =false;
+export function NavLinks(props) {
 
   return (
     <div className="nav-links">
@@ -28,8 +27,8 @@ export function NavLinks() {
         <Link to="/exercise">Exercise</Link>
         <Link to="/nutrition">Nutrition</Link>
         <Link to="/sleep">Sleep</Link>
-      {isLoggedIn ?
-          <button className="checkout-button" >Log Out</button>
+      {props.isLoggedIn ?
+          <button className="logout-button" >Log Out</button>
         :
         <div className="nav-links">
             <Link to="/login">Login</Link>

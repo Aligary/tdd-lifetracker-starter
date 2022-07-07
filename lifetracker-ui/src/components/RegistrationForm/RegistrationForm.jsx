@@ -1,6 +1,7 @@
 import * as React from "react"
 import "./RegistrationForm.css"
 import { useState } from "react"
+import apiClient from "../../../services/apiClient"
 
 export default function RegistrationForm(props) {
 
@@ -8,7 +9,16 @@ export default function RegistrationForm(props) {
     const [form, setForm] = useState({
         email: "",
         username: "",
-        fistName: "",
+        firstName: "",
+        lastName: "",
+        password: "",
+        passwordConfirm: ""
+      })
+
+      const [user, setUser] = useState({
+        email: "",
+        username: "",
+        firstName: "",
         lastName: "",
         password: "",
         passwordConfirm: ""
@@ -34,8 +44,17 @@ export default function RegistrationForm(props) {
         setForm((f) => ({ ...f, [event.target.name]: event.target.value }))
       }
 
-    const signupUser = () => {
-        console.log("signupUser")
+    const signupUser = async () => {
+      //"password", "email", "username", "first_name", "last_name"
+      const {data, error} = await apiClient.signup({first_name: form.firstName, last_name: form.lastName,username: form.username, email: form.email, password: form.password})
+      if (error) {
+        setErrors((e) => ({...e, form:error}))
+      }
+
+      if(data?.user) {
+        setUser(data.user)
+        apiClient.setToken(data.token)
+      }
     }
 
   return (

@@ -21,10 +21,10 @@ export default function App() {
       <React.Fragment>
         
         <BrowserRouter>
-        <Navbar />
+        <Navbar isLoggedIn={isLoggedIn}/>
           <Routes>
             <Route path="/" element={<Landing />}/>
-            <Route path="/login" element={<LoginPage isLoggedIn={isLoggedIn}/>}/>
+            <Route path="/login" element={<LoginPage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>
             <Route path="/register" element={<RegistrationPage isLoggedIn={isLoggedIn}/>}/>
             <Route path="/activity" element={<ActivityPage />}/>
             <Route path="/nutrition/*" element={<NutritionPage />}/>
