@@ -83,7 +83,7 @@ class User {
         //return user
         const user = result.rows[0]
 
-        return User.makePublicUser(user)
+        return user
     }
 
     static async fetchByEmail(email) {
