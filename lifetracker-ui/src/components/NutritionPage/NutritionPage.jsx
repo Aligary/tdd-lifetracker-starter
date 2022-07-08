@@ -6,9 +6,9 @@ import NotFound from "components/NotFound/NotFound"
 import NutritionNew from "components/NutritionNew/NutritionNew"
 import NutritionDetail from "components/NutritionDetail/NutritionDetail"
 import { useState } from "react"
-import { useAuthContext } from "components/contexts/auth"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import { useAuthContext } from "components/contexts/auth"
 
 export default function NutritionPage() {
 

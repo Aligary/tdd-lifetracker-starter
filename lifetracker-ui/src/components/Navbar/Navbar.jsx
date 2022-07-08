@@ -6,13 +6,13 @@ import { Link } from "react-router-dom"
 import { useAuthContext } from "components/contexts/auth"
 
 export default function Navbar(props) {
-  const {user} = useAuthContext()
+  const {user, setUser} = useAuthContext()
   const navigate = useNavigate()
 
   const logoutUser = async () => {
-    props.setIsLoggedIn(false)
+    // setUser()
 
-    navigate("/")
+    // navigate("/")
   }
   return (
     <nav className="navbar">
@@ -22,7 +22,7 @@ export default function Navbar(props) {
               <img src={logo} alt ="logo" width="60"/>
             </Link>
           </div>
-          <NavLinks isLoggedIn={props.isLoggedIn} logoutUser={logoutUser}/>
+          <NavLinks logoutUser={logoutUser}/>
         </div>
     </nav>
   )
@@ -30,6 +30,7 @@ export default function Navbar(props) {
 
 export function NavLinks(props) {
   const {user} = useAuthContext()
+  
 
   return (
     <div className="nav-links">

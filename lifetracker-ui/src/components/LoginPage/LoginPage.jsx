@@ -5,11 +5,10 @@ import { useEffect } from "react"
 import "./LoginPage.css"
 import { useAuthContext } from "components/contexts/auth"
 
-export default function LoginPage(props) {
+export default function LoginPage() {
   const {user} = useAuthContext()
-  const navigate = useNavigate()
-
   
+  const navigate = useNavigate()
 
   useEffect(() => {
     if(user) {
@@ -19,7 +18,7 @@ export default function LoginPage(props) {
   return (
     <div className="login-page">
         {
-          <LoginForm isLoggedIn={props.isLoggedIn} setIsLoggedIn={props.setIsLoggedIn}/>
+          <LoginForm />
         }
     </div>
   )

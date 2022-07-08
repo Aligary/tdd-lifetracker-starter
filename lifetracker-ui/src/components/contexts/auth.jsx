@@ -10,11 +10,6 @@ export const AuthContextProvider = ({children}) => {
 
   const authValue = {user, setUser, initialized, setInitialized, isProcessing, setIsProcessing, error, setError}
 
-  // useEffect(() => {
-  //   if(props.isLoggedIn) {
-  //     navigate("/activity")
-  //   }
-  // }, [props.isLoggedIn])
 
   return (
     <AuthContext.Provider value={authValue}>

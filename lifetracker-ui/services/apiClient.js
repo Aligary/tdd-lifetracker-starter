@@ -39,7 +39,20 @@ class ApiClient {
         return await this.request({endpoint: `auth/register`, method: `POST`, data: credentials})
     }
 
-    
+    async createNutrition(nutrition) {
+        console.log("in API", nutrition)
+        return await this.request({endpoint: `nutritions`, method: `POST`, data: nutrition})
+    }
+
+    async listNutritionForUser() {
+        return await this.request({endpoint: `nutritions`, method: `GET`})
+    }
+
+    async fetchNutritionById(id) {
+        return await this.request({endpoint: `nutritions/:nutritionId`, method: `GET`, data: id})
+    }
+
+
 
     
 }

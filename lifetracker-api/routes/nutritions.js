@@ -8,7 +8,8 @@ const Nutrition = require("../models/nutrition")
 //LIST NUTRITIONS
 router.get("/", async (req, res, next) => {
     try {
-        const nutrition = await Nutrition.listNutritionForUser(req.body)
+        //const user_id = req.headers["user_id"]
+        const nutrition = await Nutrition.listNutritionForUser()
         return res.status(200).json({ nutrition })
     } catch (err) {
         next(err)

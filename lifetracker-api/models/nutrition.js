@@ -49,7 +49,12 @@ class Nutrition {
     }
 
     static async listNutritionForUser() {
+        //console.log(user_id)
         const results = await db.query(
+
+            // `
+            //     SELECT * FROM nutrition WHERE user_id = $1
+            // `, [user_id]
             `
                 SELECT n.id,
                        n.name,

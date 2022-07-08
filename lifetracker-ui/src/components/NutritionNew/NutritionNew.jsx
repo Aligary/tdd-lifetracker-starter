@@ -2,23 +2,29 @@ import NutritionForm from "components/NutritionForm/NutritionForm"
 import * as React from "react"
 import "./NutritionNew.css"
 import { useState, useEffect } from "react"
+import { useAuthContext } from "components/contexts/auth"
+import apiClient from "../../../services/apiClient"
 import { useNavigate } from "react-router-dom"
+
 
 export default function NutritionNew(props) {
 
+  const {user} = useAuthContext()
+  const navigate = useNavigate()
+  console.log("id", user.id)
   const [nutritionInput, setNutritionInput] = useState(
     {
       name: "",
       calories: 1,
       imageUrl: "",
       category: "",
-      quantity: 1
+      quantity: 1,
+      user_id: user.id
     }
     )
   const [errors, setErrors]  = useState("")
 
   
-  const navigate = useNavigate()
 
   const handleOnInputChange = (event) => {
     if (event.target.value === "") {
@@ -30,6 +36,11 @@ export default function NutritionNew(props) {
 
   const createNewNutrition = () => {
     console.log("nutInput", nutritionInput)
+    apiClient.createNutrition(nutritionInput)
+    let temp = apiClient.listNutritionForUser()
+    console.log(temp)
+
+    navigate("/nutrition")
 
   }
   return (

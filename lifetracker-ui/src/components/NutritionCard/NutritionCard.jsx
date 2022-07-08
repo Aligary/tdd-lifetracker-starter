@@ -2,7 +2,7 @@ import * as React from "react"
 import "./NutritionCard.css"
 
 export default function NutritionCard(props) {
-    console.log(props)
+    //console.log(props)
   return (
     <div className="nutrition-card">
         <div className="card-header">
