@@ -6,15 +6,27 @@ import NotFound from "components/NotFound/NotFound"
 import NutritionNew from "components/NutritionNew/NutritionNew"
 import NutritionDetail from "components/NutritionDetail/NutritionDetail"
 import { useState } from "react"
+import { useAuthContext } from "components/contexts/auth"
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function NutritionPage() {
 
   const [nutritions, setNutritions] = useState([
-    {imageUrl: "", name: "rice", calories: "100", category: "food", createdAt: "2001-09-10"},
-    {imageUrl: "", name: "chicken", calories: "1010", category: "food", createdAt: "2001-09-10"},
-    {imageUrl: "", name: "brocoli", calories: "50", category: "food", createdAt: "2001-09-10"},
-    {imageUrl: "", name: "water", calories: "0", category: "bev", createdAt: "2001-09-10"}])
-    
+    {imageUrl: "", name: "rice", calories: "100", category: "food", createdAt: "2001-09-10", quantity: 1},
+    {imageUrl: "", name: "chicken", calories: "1010", category: "food", createdAt: "2001-09-10", quantity: 2},
+    {imageUrl: "", name: "brocoli", calories: "50", category: "food", createdAt: "2001-09-10", quantity: 2},
+    {imageUrl: "", name: "water", calories: "0", category: "bev", createdAt: "2001-09-10", quantity: 1}])
+
+
+  const {user} = useAuthContext()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if(user === undefined) {
+      navigate("/noAccess")
+    }
+  }, [user])
   return (
     <div className="nutrition-page">
         <Routes>

@@ -1,10 +1,19 @@
 import * as React from "react"
 import "./Navbar.css"
 import logo from "../../img/logo.jpg"
-
+import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
+import { useAuthContext } from "components/contexts/auth"
 
 export default function Navbar(props) {
+  const {user} = useAuthContext()
+  const navigate = useNavigate()
+
+  const logoutUser = async () => {
+    props.setIsLoggedIn(false)
+
+    navigate("/")
+  }
   return (
     <nav className="navbar">
         <div className="content">
@@ -13,13 +22,14 @@ export default function Navbar(props) {
               <img src={logo} alt ="logo" width="60"/>
             </Link>
           </div>
-          <NavLinks isLoggedIn={props.isLoggedIn}/>
+          <NavLinks isLoggedIn={props.isLoggedIn} logoutUser={logoutUser}/>
         </div>
     </nav>
   )
 }
 
 export function NavLinks(props) {
+  const {user} = useAuthContext()
 
   return (
     <div className="nav-links">
@@ -27,8 +37,8 @@ export function NavLinks(props) {
         <Link to="/exercise">Exercise</Link>
         <Link to="/nutrition">Nutrition</Link>
         <Link to="/sleep">Sleep</Link>
-      {props.isLoggedIn ?
-          <button className="logout-button" >Log Out</button>
+      {user ?
+          <button className="logout-button" onClick={props.logoutUser} >Log Out</button>
         :
         <div className="nav-links">
             <Link to="/login">Login</Link>

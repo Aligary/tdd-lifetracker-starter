@@ -2,9 +2,10 @@ import * as React from "react"
 import "./LoginForm.css"
 import { useState } from "react"
 import apiClient from "../../../services/apiClient"
+import { useAuthContext } from "components/contexts/auth"
 
 
-export default function LoginForm(props) {
+export default function LoginForm() {
     
     const [errors, setErrors] = useState({})
     const [form, setForm] = useState({
@@ -12,14 +13,7 @@ export default function LoginForm(props) {
         password: "",
       })
 
-    const [user, setUser] = useState({
-        email: "",
-        username: "",
-        firstName: "",
-        lastName: "",
-        password: "",
-        passwordConfirm: ""
-      })
+    const {setUser} = useAuthContext()
     
       const handleOnInputChange = (event) => {
         if (event.target.name === "email") {
@@ -38,13 +32,12 @@ export default function LoginForm(props) {
         if (error) {
           setErrors((e) => ({...e, form:error}))
         }
+        
 
         if(data?.user) {
           setUser(data.user)
           apiClient.setToken(data.token)
           console.log("Here")
-          //props.setIsLoggedIn(true)
-          console.log("loggedin", props.isLoggedIn)
         }
       }
 

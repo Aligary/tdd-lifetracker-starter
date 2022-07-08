@@ -12,6 +12,7 @@ export default function NutritionNew(props) {
       calories: 1,
       imageUrl: "",
       category: "",
+      quantity: 1
     }
     )
   const [errors, setErrors]  = useState("")
@@ -28,8 +29,7 @@ export default function NutritionNew(props) {
 
 
   const createNewNutrition = () => {
-    console.log("create new entry")
-     
+    console.log("nutInput", nutritionInput)
 
   }
   return (

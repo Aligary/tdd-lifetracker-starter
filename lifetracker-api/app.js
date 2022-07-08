@@ -3,6 +3,7 @@ const cors = require("cors")
 const morgan = require("morgan")
 const security = require("./middleware/security")
 const authRoutes = require("./routes/auth")
+const nutritionsRoutes = require("./routes/nutritions")
 
 const { NotFoundError } = require("./utils/errors")
 
@@ -19,6 +20,7 @@ app.use(morgan("tiny"))
 app.use(security.extractUserFromJwt)
 
 app.use("/auth", authRoutes)
+app.use("/nutritions", nutritionsRoutes)
 
 app.use((req, res, next) => {
     return next(new NotFoundError())

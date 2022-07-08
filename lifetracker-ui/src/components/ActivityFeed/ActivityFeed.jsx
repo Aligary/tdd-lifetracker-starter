@@ -22,9 +22,7 @@ export default function ActivityFeed() {
             avgCaloriesPerCategory.splice(6,avgCaloriesPerCategory.length)
         }
         
-        console.log(avgCaloriesPerCategory.length)
         return (avgCaloriesPerCategory.map((e) => {
-            console.log(e)
             return <SummaryStat 
                 stat={e.calories}
                 label="calories"

@@ -20,11 +20,16 @@ export default function NutritionForm(props) {
                         {props.errors.calories && <span className="error">{props.errors.calories}</span>}
                     </div>
                     <div className="input-field">
+                        Quantity
+                        <input className="form-input" type="number" name="quantity" min="0" max="10000000000" step="1" value={props.nutritionInput.quantity} onChange={props.handleOnInputChange}/>
+                        {props.errors.quantity && <span className="error">{props.errors.quantity}</span>}
+                    </div>
+                </div>
+                <div className="input-field">
                         Category
                         <input className="form-input" type="text" name="category" placeholder="Nutrition Category" value={props.nutritionInput.category} onChange={props.handleOnInputChange}/>
                         {props.errors.category && <span className="error">{props.errors.category}</span>}
                     </div>
-                </div>
                 
                 <div className="input-field">
                     Image URL

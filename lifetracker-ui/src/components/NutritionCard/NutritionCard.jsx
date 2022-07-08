@@ -18,6 +18,10 @@ export default function NutritionCard(props) {
                 <p>Calories</p>
                 <span>{props.nutritions.calories}</span>
             </div>
+            <div className="nutrition-quantity">
+                <p>Quantity</p>
+                <span>{props.nutritions.quantity}</span>
+            </div>
         </div>
         <div className="card-meta">
             <small className="nutrition-date">{props.nutritions.createdAt}</small>
