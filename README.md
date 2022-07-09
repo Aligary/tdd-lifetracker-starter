@@ -64,4 +64,4 @@ Implement any of the following features to improve the application:
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
 
-Shoutout to Jenny and Dylan from the W1 pod
+Shoutout to Jenny and Dylan from the W1 pod!
